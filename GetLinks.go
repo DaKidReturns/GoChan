@@ -26,7 +26,6 @@ func GetImageLinks(strPtr *string) []string {
 	return strList
 }
 
-
 //GetFolderName(*string) string - This funtions scans the html to give the folder a meaningful name
 //Input: The pointer to the string containing the html code
 //Output: The folder name of the folder where the images are to be saved
