@@ -5,12 +5,9 @@ import (
 	"strings"
 )
 
-//
 //GetImageLinks(*string) []string - The html is sarched for Image links
 //Input: pointer to the HTML code of the webpage
 //Output: A slice containing the links to be downloaded
-//
-
 func GetImageLinks(strPtr *string) []string {
 	re := regexp.MustCompile("href=\\\"\\/\\/i\\.4cdn\\.org\\/[a-z]+\\/[0-9]*\\.(jpg|png|jpeg)")
 
@@ -29,12 +26,10 @@ func GetImageLinks(strPtr *string) []string {
 	return strList
 }
 
-//
+
 //GetFolderName(*string) string - This funtions scans the html to give the folder a meaningful name
 //Input: The pointer to the string containing the html code
 //Output: The folder name of the folder where the images are to be saved
-//
-
 func GetFolderName(strPtr *string) string {
 	re := regexp.MustCompile("\\<span class=\"subject\"\\>[a-zA-Z0-9\\s]*</span\\>")
 	forumName := re.FindString(*strPtr)

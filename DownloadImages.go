@@ -8,6 +8,9 @@ import (
 	"regexp"
 )
 
+//DownloadImages(string,[]string,*http.Client)
+//Input: the name of the folder where the files should be saved, a slice contating the links and the http.Client
+//Output: An error which is null if no errors are found
 func DownloadImages(folderName string, strLinks []string, client *http.Client) error {
 	homeDir, err := os.UserHomeDir()
 

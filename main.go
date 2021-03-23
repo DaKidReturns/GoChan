@@ -38,9 +38,3 @@ func main() {
 	}
 
 }
-
-/*
-func useage() {
-    fmt
-}
-*/

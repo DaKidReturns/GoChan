@@ -7,9 +7,9 @@ import (
 	"net/http"
 )
 
-//GetSource
-//Returns the source code in a string and
-
+//GetSource(*http.Client,string)
+//Input:Pointer to the http.Client and the url as a string
+//Returns the source code in a string and an error
 func GetSource(client *http.Client, url string) (*string, error) {
 
 	request, err := http.NewRequest("GET", url, nil)
@@ -27,7 +27,6 @@ func GetSource(client *http.Client, url string) (*string, error) {
 	if response.Status != "200 OK" {
 		fmt.Println(response.Status)
 		return nil, errors.New("Page not found")
-
 	}
 
 	defer response.Body.Close()
