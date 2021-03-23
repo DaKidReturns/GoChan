@@ -20,11 +20,7 @@ Download images from 4chan
 
 ### Why did I do this?
 1. I wanted to learn golang
-2. I wanted to download all the images from a forum on 4chan ([the one that contains a lot of technical drawings][4chanlink])
+2. I wanted to download all the images from a forum on 4chan [the one that contains a lot of technical drawings](https://boards.4chan.org/hr/thread/3828834)
+
 
 So I figured why not create a web scaper for it ;-)
-
-
-
-[LINKS]:()
-[4chanlink](https://boards.4chan.org/hr/thread/3828834)
