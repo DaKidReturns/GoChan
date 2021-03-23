@@ -4,12 +4,11 @@ import(
     "io"
     "os"
     "net/http"
-/*  "errors" */
     "regexp"
     "fmt"
 )
 
-func DownloadImages(strLinks []string,client *http.Client)  error{
+func DownloadImages(folderName string,strLinks []string,client *http.Client)  error{
     homeDir, err := os.UserHomeDir()
 
     if err != nil {
@@ -22,7 +21,7 @@ func DownloadImages(strLinks []string,client *http.Client)  error{
         return err
     }
 
-    saveImageDir := homeDir+"/Pictures/Gochan"
+    saveImageDir := homeDir+"/Pictures/Gochan/"+folderName
 
     err = os.MkdirAll(saveImageDir,0751)
 
@@ -40,7 +39,7 @@ func DownloadImages(strLinks []string,client *http.Client)  error{
     }
 
     for i,_ := range strLinks {
-//TODO: Make a funtion for this
+        //TODO: Make a funtion for this
         fileName := re.FindString(strLinks[i])
         f, err  := os.Create("./"+fileName+".tmp")
 

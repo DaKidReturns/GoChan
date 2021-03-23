@@ -8,8 +8,9 @@ import (
 )
 
 func main() {
+    Intro()
     if len(os.Args) < 2 {
-        fmt.Println("Useage: gochan [urlname]")
+        Useage()
         os.Exit(1)
     }
 
@@ -24,16 +25,21 @@ func main() {
         panic(err)
     }
 
-    imageLinks := GetLinks(str)
-/*
-    for i,_ := range imageLinks {
-        fmt.Println("Link ",i+1," : ",imageLinks[i])
-    }
-*/
+    imageLinks := GetImageLinks(str)
+
+    folderName := GetFolderName(str)
+    fmt.Println("FolderName: ",folderName)
+
     fmt.Println("Starting to download images")
-    err = DownloadImages(imageLinks,client)
+    err = DownloadImages(folderName,imageLinks,client)
 
     if err != nil{
         panic(err)
     }
+
 }
+/*
+func useage() {
+    fmt
+}
+*/
