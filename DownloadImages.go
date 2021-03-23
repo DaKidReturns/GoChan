@@ -1,90 +1,97 @@
 package main
 
-import(
-    "io"
-    "os"
-    "net/http"
-    "regexp"
-    "fmt"
+import (
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"regexp"
 )
 
-func DownloadImages(folderName string,strLinks []string,client *http.Client)  error{
-    homeDir, err := os.UserHomeDir()
+func DownloadImages(folderName string, strLinks []string, client *http.Client) error {
+	homeDir, err := os.UserHomeDir()
 
-    if err != nil {
-        return err
-    }
+	if err != nil {
+		return err
+	}
 
-    currentDir, err:= os.Getwd()
+	currentDir, err := os.Getwd()
 
-    if err != nil {
-        return err
-    }
+	if err != nil {
+		return err
+	}
 
-    saveImageDir := homeDir+"/Pictures/Gochan/"+folderName
+	saveImageDir := homeDir + "/Pictures/Gochan/" + folderName + "/"
 
-    err = os.MkdirAll(saveImageDir,0751)
+	if _, err = os.Stat(saveImageDir); os.IsNotExist(err) {
+		fmt.Println("Creating Directory")
+		err := os.MkdirAll(saveImageDir, 0751)
+		if err != nil {
+			return err
+		}
+	}
 
-    if err != nil {
-        return err
-    }
+	re := regexp.MustCompile("[0-9]+\\.(png|jpeg|jpg|svg)")
 
-    re := regexp.MustCompile("[0-9]+\\.(png|jpeg|jpg|svg)")
+	/*err = os.Chdir(saveImageDir)
 
+	  if err != nil {
+	       return err
+	  }*/
 
-    err = os.Chdir(saveImageDir)
+	for i, _ := range strLinks {
+		//TODO: Make a function for this
+		fileName := re.FindString(strLinks[i])
 
-    if err != nil {
-         return err
-    }
+		if _, err := os.Stat(saveImageDir + fileName); !os.IsNotExist(err) {
+			//fmt.Println(fileName,"Exists!!!")
+			continue
+		}
 
-    for i,_ := range strLinks {
-        //TODO: Make a funtion for this
-        fileName := re.FindString(strLinks[i])
-        f, err  := os.Create("./"+fileName+".tmp")
+		f, err := os.Create(saveImageDir + fileName + ".tmp")
 
-        if err != nil {
-             return err
-        }
+		if err != nil {
+			return err
+		}
 
-        defer f.Close()
+		defer f.Close()
 
-        request,err := http.NewRequest("GET",strLinks[i],nil)
+		request, err := http.NewRequest("GET", strLinks[i], nil)
 
-        if err != nil {
-             return err
-        }
+		if err != nil {
+			return err
+		}
 
-        fmt.Print("\nDownloading file: ", strLinks[i])
+		fmt.Print("\nDownloading file: ", fileName)
 
-        response,err := client.Do(request)
+		response, err := client.Do(request)
 
-        if err != nil {
-             return err
-        }
+		if err != nil {
+			return err
+		}
 
-        defer response.Body.Close()
+		defer response.Body.Close()
 
-        _,err = io.Copy(f,response.Body)
+		_, err = io.Copy(f, response.Body)
 
-        if err != nil {
-            return err
-        }
+		if err != nil {
+			return err
+		}
 
-        err = os.Rename(fileName+".tmp",fileName)
+		err = os.Rename(saveImageDir+fileName+".tmp", saveImageDir+fileName)
 
-        if err != nil {
-            return err
-        }
+		if err != nil {
+			return err
+		}
 
-    }
+	}
 
-    err = os.Chdir(currentDir)
+	err = os.Chdir(currentDir)
 
-    if err!=nil {
-        return nil
-    }
+	if err != nil {
+		return err
+	}
 
-    return nil
+	return nil
 
 }
