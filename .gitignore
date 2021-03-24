@@ -2,3 +2,4 @@
 gochanutils/*
 gochan
 *.backup
+*.o

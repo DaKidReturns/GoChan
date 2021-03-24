@@ -5,12 +5,13 @@ import (
 	"net/http"
 	"os"
 	"time"
+    "github.com/dakidreturns/gochan"
 )
 
 func main() {
-	Intro()
+	gochan.Intro()
 	if len(os.Args) < 2 {
-		Usage()
+		gochan.Usage()
 		os.Exit(1)
 	}
 
@@ -19,19 +20,19 @@ func main() {
 		Timeout: 20 * time.Second,
 	}
 
-	str, err := GetSource(client, os.Args[1])
+	str, err := gochan.GetSource(client, os.Args[1])
 
 	if err != nil {
 		panic(err)
 	}
 
-	imageLinks := GetImageLinks(str)
+	imageLinks := gochan.GetImageLinks(str)
 
-	folderName := GetFolderName(str)
+	folderName := gochan.GetFolderName(str)
 	fmt.Println("FolderName: ", folderName)
 
 	fmt.Println("Starting to download images")
-	err = DownloadImages(folderName, imageLinks, client)
+	err = gochan.DownloadImages(folderName, imageLinks, client)
 
 	if err != nil {
 		panic(err)
