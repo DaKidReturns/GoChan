@@ -7,7 +7,7 @@ Download images from 4chan
 2. No dependincies, no extra modules required.
 
 ### Building From the source
-1. Ensure your go version >= 1.16
+1. Ensure your go version is >= 1.16
 2. Clone the repository `git clone https://github.com/DaKidReturns/GoChan`
 3. Go into the folder GoChan `$ cd GoChan` and run `go build`
 

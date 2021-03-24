@@ -6,7 +6,7 @@ import (
 )
 
 //Prints out the useage
-//Useage()
+//Usage()
 func Usage() {
 	fmt.Println("Usage: gochan [urlname]")
 	dir, err := os.UserHomeDir()
