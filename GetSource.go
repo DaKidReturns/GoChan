@@ -8,9 +8,9 @@ import (
 )
 
 //GetSource(*http.Client,string)
-//Input:Pointer to the http.Client and the url as a string
-//Returns the source code in a string and an error
 func GetSource(client *http.Client, url string) (*string, error) {
+	//Input:Pointer to the http.Client and the url as a string
+	//Returns the source code in a string and an error
 
 	request, err := http.NewRequest("GET", url, nil)
 
@@ -31,13 +31,13 @@ func GetSource(client *http.Client, url string) (*string, error) {
 
 	defer response.Body.Close()
 
-	response_bytes, err := ioutil.ReadAll(response.Body)
+	responseBytes, err := ioutil.ReadAll(response.Body)
 
 	if err != nil {
 		return nil, err
 	}
 
-	str := string(response_bytes)
+	str := string(responseBytes)
 	str_ptr := &str
 
 	return str_ptr, nil

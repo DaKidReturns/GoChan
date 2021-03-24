@@ -2,14 +2,22 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 //Prints out the useage
+//Useage()
 func Usage() {
-	fmt.Println("Useage: gochan [urlname]")
+	fmt.Println("Usage: gochan [urlname]")
+	dir, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Println("Can't find the HOME directory, may behave in an unexpected way")
+	}
+	fmt.Println("Saves the images to", dir+"/Pictures/GoChan")
 }
 
 //Prints out a short intro about the application
+//Intro()
 func Intro() {
 	fmt.Println("GoChan Ver 0.1")
 }
