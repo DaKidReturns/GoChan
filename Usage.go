@@ -19,5 +19,5 @@ func Usage() {
 //Prints out a short intro about the application
 //Intro()
 func Intro() {
-	fmt.Println("GoChan Ver 2.0")
+	fmt.Println("GoChan Ver 1.0")
 }
