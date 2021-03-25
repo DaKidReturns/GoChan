@@ -1,4 +1,4 @@
-package gochan
+package GoChan
 
 import (
 	"errors"
