@@ -5,13 +5,13 @@ import (
 	"net/http"
 	"os"
 	"time"
-    "github.com/DaKidReturns/GoChan"
+    GoChan "github.com/DaKidReturns/GoChan"
 )
 
 func main() {
-	gochan.Intro()
+	GoChan.Intro()
 	if len(os.Args) < 2 {
-		gochan.Usage()
+		GoChan.Usage()
 		os.Exit(1)
 	}
 
@@ -20,19 +20,19 @@ func main() {
 		Timeout: 20 * time.Second,
 	}
 
-	str, err := gochan.GetSource(client, os.Args[1])
+	str, err := GoChan.GetSource(client, os.Args[1])
 
 	if err != nil {
 		panic(err)
 	}
 
-	imageLinks := gochan.GetImageLinks(str)
+	imageLinks := GoChan.GetImageLinks(str)
 
-	folderName := gochan.GetFolderName(str)
+	folderName := GoChan.GetFolderName(str)
 	fmt.Println("FolderName: ", folderName)
 
 	fmt.Println("Starting to download images")
-	err = gochan.DownloadImages(folderName, imageLinks, client)
+	err = GoChan.DownloadImages(folderName, imageLinks, client)
 
 	if err != nil {
 		panic(err)
