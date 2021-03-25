@@ -7,11 +7,23 @@ Download images from 4chan
 2. No dependincies, no extra modules required.
 3. You can import this package into your go project and use it
 
-### Building From the source
+### Building From the source (If you just want an image scrapper and nothing more)
 1. Ensure your go version is >= 1.16
 2. Clone the repository `git clone https://github.com/DaKidReturns/GoChan`
-3. Run `go build -o gochan`
-4. Now that you have compiled your source you can use it by `$ ./gochan [4chan-urlname]`
+3. Go into the folder GoChan `$ cd GoChan/example` where you will find the example code as `main.go`
+4. Run `go build -o gochan`
+5. Now that you have compiled your source you can use it by `$ ./gochan [4chan-urlname]`
+
+### Using the module for your project
+1. Ensure your go version is >= 1.16
+2. Run the command `go get github.com/DaKidReturns/GoChan`
+3. Use it in your project by the import statement `import "github.com/DaKidReturns/GoChan"` it will be imported as `gochan` and not as `GoChan`.
+If you prefer the latter then prefix the import statement with `GoChan` like so, ```import GoChan "github.com/DaKidReturns/GoChan"``` or 
+	```go
+	import(
+	 	GoChan "github.com/DaKidReturns/GoChan"
+	 )
+	 ```
 
 ### Future Plans
 1. [ ] Add a progress bar to show the currently downloading image
@@ -19,6 +31,7 @@ Download images from 4chan
 3. [ ] I plan to do something with concurrency in golang, like download multiple files at once. (after I learn concurrency in golang)
 4. [ ] Create better Documentation
 5. [ ] Add a Logging feature
+6. [ ] Add an option for saving to custom directories  
 
 ### Why did I do this?
 1. I wanted to learn golang
