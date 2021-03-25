@@ -48,3 +48,4 @@ So I figured why not create a web scaper for it ;-)
 
 [LINKS]:()
 [4chanLink]:https://boards.4chan.org/hr/thread/3828834
+[aflj]:()
