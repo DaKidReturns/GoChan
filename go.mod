@@ -1,3 +1,3 @@
-module github.com/dakidreturns/gochan/v1.0.0
+module github.com/DaKidReturns/GoChan
 
 go 1.16

@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 	"time"
-    "github.com/dakidreturns/gochan"
+    "github.com/DaKidReturns/GoChan"
 )
 
 func main() {
