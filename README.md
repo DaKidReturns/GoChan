@@ -2,6 +2,8 @@
 
 Download images from 4chan  
 
+## THIS IS THE DEVELOPMENT BRANCH THE CODE WILL BE EXTEREMLY UNSTABLE
+
 ### Features
 1. Download all the images from a 4chan forum.
 2. No dependincies, no extra modules required.
