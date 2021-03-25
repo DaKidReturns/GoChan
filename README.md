@@ -17,8 +17,17 @@ Download images from 4chan
 ### Using the module for your project
 1. Ensure your go version is >= 1.16
 2. Run the command `go get github.com/DaKidReturns/GoChan`
-3. Use it in your project by the import statement `import "github.com/DaKidReturns/GoChan"` it will be imported as `gochan` and not as `GoChan`.
-If you prefer the latter then prefix the import statement with `GoChan` like so, ```import GoChan "github.com/DaKidReturns/GoChan"``` or 
+3. Use it in your project by the import statement 
+	```go
+	import "github.com/DaKidReturns/GoChan"
+	``` 
+	it will be imported as `gochan` and not as `GoChan`.
+	If you prefer the latter then prefix the link in the import statement with `GoChan` like so, 
+	```go 
+	import GoChan "github.com/DaKidReturns/GoChan"
+	``` 
+	or
+	
 	```go
 	import(
 	 	GoChan "github.com/DaKidReturns/GoChan"
