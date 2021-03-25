@@ -21,18 +21,15 @@ Download images from 4chan
 	```go
 	import "github.com/DaKidReturns/GoChan"
 	``` 
-	it will be imported as `gochan` and not as `GoChan`.
-	If you prefer the latter then prefix the link in the import statement with `GoChan` like so, 
-	```go 
-	import GoChan "github.com/DaKidReturns/GoChan"
-	``` 
+    
 	or
 	
 	```go
 	import(
-	 	GoChan "github.com/DaKidReturns/GoChan"
+	 	"github.com/DaKidReturns/GoChan"
 	 )
 	 ```
+	it will be imported as `GoChan`.
 
 ### Future Plans
 1. [ ] Add a progress bar to show the currently downloading image
