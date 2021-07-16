@@ -1,4 +1,4 @@
-package GoChan
+package gochan
 
 import (
 	"fmt"
@@ -65,7 +65,8 @@ func DownloadImages(folderName string, strLinks []string, client *http.Client) e
 			return err
 		}
 
-		fmt.Print("\nDownloading file: ", fileName)
+		fmt.Print("Downloading file: ", fileName)
+		fmt.Println(" URL: ", strLinks[i])
 
 		response, err := client.Do(request)
 
@@ -88,7 +89,6 @@ func DownloadImages(folderName string, strLinks []string, client *http.Client) e
 		}
 
 	}
-
 	err = os.Chdir(currentDir)
 
 	if err != nil {

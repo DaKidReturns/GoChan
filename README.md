@@ -1,4 +1,4 @@
-# GoChan
+# gochan
 
 Download images from 4chan  
 
@@ -9,27 +9,27 @@ Download images from 4chan
 
 ### Building From the source (If you just want an image scrapper and nothing more)
 1. Ensure your go version is >= 1.16
-2. Clone the repository `git clone https://github.com/DaKidReturns/GoChan`
-3. Go into the folder GoChan `$ cd GoChan/example` where you will find the example code as `main.go`
+2. Clone the repository `git clone https://github.com/DaKidReturns/gochan`
+3. Go into the folder gochan `$ cd gochan/example` where you will find the example code as `main.go`
 4. Run `go build -o gochan`
 5. Now that you have compiled your source you can use it by `$ ./gochan [4chan-urlname]`
 
 ### Using the module for your project
 1. Ensure your go version is >= 1.16
-2. Run the command `go get github.com/DaKidReturns/GoChan`
+2. Run the command `go get github.com/DaKidReturns/gochan`
 3. Use it in your project by the import statement 
 	```go
-	import "github.com/DaKidReturns/GoChan"
+	import "github.com/DaKidReturns/gochan"
 	``` 
     
 	or
 	
 	```go
 	import(
-	 	"github.com/DaKidReturns/GoChan"
+	 	"github.com/DaKidReturns/gochan"
 	 )
 	 ```
-	it will be imported as `GoChan`.
+	it will be imported as `gochan`.
 
 ### Future Plans
 1. [ ] Add a progress bar to show the currently downloading image
