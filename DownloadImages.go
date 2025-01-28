@@ -8,10 +8,10 @@ import (
 	"regexp"
 )
 
-//DownloadImages(string,[]string,*http.Client)
+// DownloadImages(string,[]string,*http.Client)
 func DownloadImages(folderName string, strLinks []string, client *http.Client) error {
-    //Input: the name of the folder where the files should be saved, a slice contating the links and the http.Client
-    //Output: An error which is null if no errors are found
+	//Input: the name of the folder where the files should be saved, a slice contating the links and the http.Client
+	//Output: An error which is null if no errors are found
 	homeDir, err := os.UserHomeDir()
 
 	if err != nil {
@@ -34,15 +34,15 @@ func DownloadImages(folderName string, strLinks []string, client *http.Client) e
 		}
 	}
 
-	re := regexp.MustCompile("[0-9]+\\.(png|jpeg|jpg|svg)")
+	re := regexp.MustCompile(`[0-9]+\.(png|jpeg|jpg|svg|webm)`)
 
 	err = os.Chdir(saveImageDir)
 
-	  if err != nil {
-	       return err
-	  }
+	if err != nil {
+		return err
+	}
 
-	for i, _ := range strLinks {
+	for i := range strLinks {
 		//TODO: Make a function for this
 		fileName := re.FindString(strLinks[i])
 
@@ -81,6 +81,8 @@ func DownloadImages(folderName string, strLinks []string, client *http.Client) e
 		if err != nil {
 			return err
 		}
+
+		f.Close()
 
 		err = os.Rename(fileName+".tmp", fileName)
 

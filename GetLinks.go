@@ -10,8 +10,8 @@ func GetImageLinks(strPtr *string) []string {
 	//Input: pointer to the HTML code of the webpage
 	//Output: A slice containing the links to be downloaded
 
-	re := regexp.MustCompile("href=\\\"\\/\\/i\\.4cdn\\.org\\/[a-z]+\\/[0-9]*\\.(jpg|png|jpeg)")
-	re2 := regexp.MustCompile("href=\\\"\\/\\/is2\\.4chan\\.org\\/[a-z]+\\/[0-9]*\\.(jpg|png|jpeg)")
+	re := regexp.MustCompile("href=\\\"\\/\\/i\\.4cdn\\.org\\/[a-z]+\\/[0-9]*\\.(jpg|png|jpeg|webm)")
+	re2 := regexp.MustCompile("href=\\\"\\/\\/is2\\.4chan\\.org\\/[a-z]+\\/[0-9]*\\.(jpg|png|jpeg|webm)")
 
 	strList := re.FindAllString((*strPtr), -1)
     str2_list := re2.FindAllString((*strPtr),-1)
